@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artificial Intelligence and Machine Learning</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap">
+    <style>
+        /* Common styles */
+        body {
+            font-family: 'Lora', serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.frontlist.in/storage/uploads/2021/06/GettyImages-577674005.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 42px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 24px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(29, 28, 28);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #ffcc00;
+        }
+
+        .pattern-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://wallpapersmug.com/download/2560x1600/5877e7/lake-sunset-orange-minimal-dark.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: -1;
+            border-radius: 10px;
+        }
+
+        /* Styles specific to the AI and Machine Learning section */
+        .subject {
+            display: block;
+            margin: 10px auto;
+            padding: 15px 30px;
+            font-size: 24px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: rgb(29, 28, 28);
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .subject:hover {
+            background-color: #ffcc00;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="pattern-overlay"></div> <!-- Background pattern overlay -->
+    <div class="container">
+        <h1>Artificial Intelligence and Machine Learning</h1>
+        
+        <button class="subject" onclick="getPapers('Data Structure and Analysis')">Data Structures and Algorithms</button>
+        <button class="subject" onclick="getPapers('Operating System')">Operating System</button>
+        <button class="subject" onclick="getPapers('Linear algebra')">Linear Algebra</button>
+        <button class="subject" onclick="getPapers('Computer and Communication Networks')">Computer and Communication Networks</button>
+    </div>
+
+    <script>
+        function getPapers(subject) {
+            window.location.href = `paper.html?subject=${encodeURIComponent(subject)}`;
+        }
+    </script>
+</body>
+</html>

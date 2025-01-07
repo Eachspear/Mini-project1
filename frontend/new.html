@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exam Papers</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap">
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.frontlist.in/storage/uploads/2021/06/GettyImages-577674005.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff; /* Text color */
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6); /* Darker background with transparency */
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Soft box shadow */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 42px;
+            color: #fff; /* Header text color */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            margin-top: 10px; /* Spacing between list items */
+            margin-bottom: 10px; /* Spacing between list items */
+            font-size: 24px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white background */
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); /* Soft box shadow */
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition */
+        }
+        li:hover {
+            transform: translateY(-5px); /* Move up on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced box shadow on hover */
+        }
+        /* Style the anchor tags */
+        a {
+            text-decoration: none; /* Remove underline */
+            color: rgb(52, 47, 47); /* Anchor text color */
+            transition: color 0.3s; /* Smooth color transition */
+        }
+        a:hover {
+            color: #ffcc00; /* Change color on hover */
+        }
+        .pattern-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://wallpapersmug.com/download/2560x1600/5877e7/lake-sunset-orange-minimal-dark.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.5; /* Background opacity */
+            pointer-events: none; /* Prevent interaction with pattern */
+            z-index: -1; /* Place behind content */
+            border-radius: 10px; /* Border radius to match container */
+        }
+    </style>
+</head>
+<body>
+    <div class="pattern-overlay"></div> <!-- Background pattern overlay -->
+    <div class="container">
+        <h1>Exam Papers</h1>
+        
+        <ul id="paper-list"></ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const papersList = document.getElementById('paper-list');
+            const params = new URLSearchParams(window.location.search);
+            const subject = params.get('subject');
+
+            // Fetch papers from the database
+            fetch(`http://localhost:3000/exam-papers?subject=${subject}`)
+                .then(response => response.json())
+                .then(result => {
+                    // Display papers
+                    result.data.forEach(paper => {
+                        const listItem = document.createElement('li');
+                        const link = document.createElement('a');
+                        link.textContent = paper.name;
+                        link.href = `${window.location.origin}/${window.location.pathname.split('/')[1]}/${paper.name}`;
+                        listItem.appendChild(link);
+                        papersList.appendChild(listItem);
+                    });
+                }).catch(error => {
+                    alert('Error fetching papers:', error);
+                });
+        });
+    </script>
+</body>
+</html>

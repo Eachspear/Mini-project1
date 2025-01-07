@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Papers</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap">
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://www.frontlist.in/storage/uploads/2021/06/GettyImages-577674005.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 42px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 24px;
+            padding: 15px;
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        li:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        a {
+            text-decoration: none;
+            color: rgb(29, 28, 28);
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #ffcc00;
+        }
+
+        .pattern-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://wallpapersmug.com/download/2560x1600/5877e7/lake-sunset-orange-minimal-dark.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: -1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="pattern-overlay"></div> <!-- Background pattern overlay -->
+    <div class="container">
+        <h1>Papers for <span id="subject"></span></h1>
+        
+        <ul id="papers-list">
+            <!-- Papers will be inserted here dynamically -->
+        </ul>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const subject = urlParams.get('subject');
+            const subjectElement = document.getElementById('subject');
+            subjectElement.textContent = subject;
+
+            const papersList = document.getElementById('papers-list');
+
+            const loader = document.createElement('div');
+            loader.id = 'loader';
+            loader.innerHTML = '<div></div>';
+            document.body.appendChild(loader);
+
+            // Fetch papers function
+            function fetchPapers(subject) {
+                const url = new URL('http://localhost:3000/exam-papers');
+                const params = { subject: subject };
+                url.search = new URLSearchParams(params).toString();
+
+                loader.style.display = 'block';
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(result => {
+                        papersList.innerHTML = '';
+
+                        result.data.forEach(paper => {
+                            const listItem = document.createElement('li');
+                            const link = document.createElement('a');
+                            link.textContent = paper.name;
+                            link.onclick = function() {
+                            window.open(`${window.location.origin}/${window.location.pathname.split('/')[1]}/${paper.name}`);
+                        };                            listItem.appendChild(link);
+                            papersList.appendChild(listItem);
+                        });
+
+                        loader.style.display = 'none';
+                    })
+                    .catch(error => {
+                        console.error('Error fetching papers:', error);
+                        loader.style.display = 'none';
+                    });
+            }
+
+            // Call fetchPapers function with the subject
+            fetchPapers(subject);
+        });
+    </script>
+</body>
+</html>

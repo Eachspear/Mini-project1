@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PaperHub - Branches</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap">
+    <style>
+        body {
+            font-family: 'Lora', serif;
+            margin: 0;
+            padding-top: 100px; /* Increased padding for better header positioning */
+            background: url('https://www.frontlist.in/storage/uploads/2021/06/GettyImages-577674005.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333; /* Text color */
+        }
+        
+        .header {
+            padding: 20px; /* Increased padding for better visibility */
+            background: url('https://wallpapersmug.com/download/2560x1600/5877e7/lake-sunset-orange-minimal-dark.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff; /* Text color */
+            text-align: center;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .container {
+            max-width: 100%;
+            margin-top: 40px;
+            padding: 20px;
+            background-color: rgba(172, 172, 172, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .branch-section {
+            margin-bottom: 60px;
+            border-radius: 10px;
+            height:350px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffd89b, #19547b);
+            position: relative;
+            color: #fff;
+        }
+
+        .branch-content {
+            padding: 20px;
+        }
+
+        .branch-title {
+            font-size: 32px;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .branch-description {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .branch-link {
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-right: 10px;
+        }
+
+        .branch-link:hover {
+            background-color: #45a049;
+        }
+        /* Dropdown Button Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropbtn {
+            background-color: orange;
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            height: 70px;
+        }
+
+        .dropbtn:hover {
+            background-color: #ff7f00; /* Darker shade of orange on hover */
+        }
+        @media screen and (max-width: 768px) {
+            .dropdown {
+                display: block;
+                margin-bottom: 10px;
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                min-width: auto;
+                box-shadow: none;
+            }
+
+            .dropdown:hover .dropdown-content {
+                display: block;
+            }
+
+            .dropbtn {
+                width: 100%;
+                text-align: left;
+            }
+
+            .branch-section {
+                height: auto;
+            }
+
+            .branch-content {
+                padding: 10px;
+            }
+
+            .branch-title {
+                font-size: 24px;
+            }
+
+            .branch-description {
+                font-size: 16px;
+            }
+
+            .branch-link {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><a href="index.html" style="color: white; text-decoration: none;">PaperHub</a></h1>
+        <div class="dropdown">
+            <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+                <a href="#">About Us</a>
+                <a href="#">Settings</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Branches Section -->
+        <div class="branch-section">
+            <div class="branch-content">
+                <h2 class="branch-title">Computer Engineering</h2>
+                <p class="branch-description">Discover resources and papers related to Computer Engineering.</p>
+                <div class="dropdown">
+                    <button class="dropbtn">1st Year</button>
+                    <div class="dropdown-content">
+                        <a href="#" id="ce-sem1">Semester 1</a>
+                        <a href="#" id="ce-sem2">Semester 2</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">2nd Year</button>
+                    <div class="dropdown-content">
+                        <a href="#" id="ce-sem3">Semester 3</a>
+                        <a href="#"id="ce-sem4">Semester 4</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">3rd Year</button>
+                    <div class="dropdown-content">
+                        <a href="#" id="ce-3rd-sem1">Semester 5</a>
+                        <a href="#" id="ce-3rd-sem2">Semester 6</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">4th Year</button>
+                    <div class="dropdown-content">
+                        <a href="#">Semester 7</a>
+                        <a href="#">Semester 8</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more branch sections with dropdowns as needed -->
+        <div class="branch-section">
+            <div class="branch-content">
+                <h2 class="branch-title">Artificial Intelligence and Machine Learning</h2>
+                <p class="branch-description">Explore resources and papers related to Artificial Intelligence and Machine Learning.</p>
+                <div class="dropdown">
+                    <button class="dropbtn">1st Year</button>
+                    <div class="dropdown-content">
+                        <a href="#" >Semester 1</a>
+                        <a href="#">Semester 2</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">2nd Year</button>
+                    <div class="dropdown-content">
+                        <a href="#"id="ai-sem3">Semester 3</a>
+                        <a href="#" id="ai-sem4">Semester 4</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">3rd Year</button>
+                    <div class="dropdown-content">
+                        <a href="#">Semester 5</a>
+                        <a href="#">Semester 6</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">4th Year</button>
+                    <div class="dropdown-content">
+                        <a href="#">Semester 7</a>
+                        <a href="#">Semester 8</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more branch sections with dropdowns as needed -->
+        <div class="branch-section">
+            <div class="branch-content">
+                <h2 class="branch-title">Data Science</h2>
+                <p class="branch-description">Find papers and materials related to Data Science.</p>
+                <div class="dropdown">
+                    <button class="dropbtn">1st Year</button>
+                    <div class="dropdown-content">
+                        <a href="#">Semester 1</a>
+                        <a href="#">Semester 2</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">2nd Year</button>
+                    <div class="dropdown-content">
+                        <a href="#" id="ds-sem3">Semester 3</a>
+                        <a href="#" id="ds-sem4">Semester 4</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">3rd Year</button>
+                    <div class="dropdown-content">
+                        <a href="#">Semester 5</a>
+                        <a href="#">Semester 6</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">4th Year</button>
+                    <div class="dropdown-content">
+                        <a href="#">Semester 7</a>
+                        <a href="#">Semester 8</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more branch sections with dropdowns as needed -->
+        <div class="branch-section">
+            <div class="branch-content">
+                <h2 class="branch-title">Electronics and Telecommunication Engineering</h2>
+                <p class="branch-description">Find papers and materials related to Electronics and Telecommunication Engineering.</p>
+                <div class="dropdown">
+                    <button class="dropbtn">1st Year</button>
+                    <div class="dropdown-content">
+                        <a href="#">Semester 1</a>
+                        <a href="#">Semester 2</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">2nd Year</button>
+                    <div class="dropdown-content">
+                        <a href="#">Semester 3</a>
+                        <a href="#">Semester 4</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">3rd Year</button>
+                    <div class="dropdown-content">
+                        <a href="#">Semester 5</a>
+                        <a href="#">Semester 6</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">4th Year</button>
+                    <div class="dropdown-content">
+                        <a href="#">Semester 7</a>
+                        <a href="#">Semester 8</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more branch sections with dropdowns as needed -->
+
+        <!-- Down Section -->
+        <div class="down-section">
+            <a href="#">About Us</a>
+            <a href="#">Settings</a>
+        </div>
+    </div>
+
+    <!-- JavaScript to handle redirection -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Define function to handle redirection
+            function redirectToPage(event, pageURL) {
+                // Prevent the default link behavior
+                event.preventDefault();
+                // Redirect to the specified HTML page
+                console.log("Clicked on link");
+                window.location.href = pageURL;
+            }
+    
+            // Get the "3rd Year Semester 1" link in the Computer Engineering branch and add event listener
+            var ce = document.getElementById("ce-sem4");
+            ce.addEventListener("click", function(event) {
+                redirectToPage(event, "ce.html");
+            });
+
+            // Get the "3rd Year Semester 2" link in the Computer Engineering branch and add event listener
+            var ai = document.getElementById("ai-sem4");
+            ai.addEventListener("click", function(event) {
+                redirectToPage(event, "subjext.html");
+            });
+            var ds = document.getElementById("ds-sem4");
+            ds.addEventListener("click", function(event) {
+                redirectToPage(event, "ds.html");
+            })
+
+            // Repeat the above process for all other branches and years as needed
+        });
+    </script>
+    
+</body>
+</html>
+
